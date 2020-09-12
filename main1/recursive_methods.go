@@ -1,4 +1,4 @@
-package main
+package main1
 
 import (
 	"fmt"
@@ -8,8 +8,8 @@ import (
 
 	"strconv"
 
-	as "./counterS"
-	"./piTest"
+	as "../counterS"
+	"../piTest"
 )
 
 const name2 = "HOLA"
