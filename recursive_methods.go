@@ -6,6 +6,8 @@ import (
 
 	"strings"
 
+	"strconv"
+
 	as "./counterS"
 	"./piTest"
 )
@@ -111,13 +113,13 @@ func main() {
 	}
 	*/
 
-	var str string = "The example of a prefix"
+	var str string = "The/example/of/a/prefix"
 
 	println(strings.HasPrefix(str, "th")) //Similitud al startsWith de Java
 
 	println(strings.HasSuffix(str, "prefix"))
 
-	var substr string = "example"
+	var substr string = "e x a m p l e"
 	var containsSub bool = strings.Contains(str, substr)
 	println(containsSub)
 
@@ -125,12 +127,33 @@ func main() {
 	var lastIndex int = strings.LastIndex(substr, "e")
 	println(indexOf, " ", lastIndex)
 	var numberOf int = strings.Count(substr, "5")
-	fmt.Printf("The number of e in example is %d", numberOf)
+	fmt.Printf("The number of e in example is %d\n", numberOf)
 	var replaced string
 	replaced = strings.Replace(str, "e", "kk", -1)
 	println(replaced)
-	var repeated string = strings.Repeat("Hola!", 40)
+	var repeated string = strings.Repeat("Hola!", 3)
 	println(repeated)
+	var trimed string = strings.Trim(repeated, "H")
+	println(trimed)
+	slice := strings.Fields(substr) //Particionar solo con base en espacios
+	fmt.Println(slice)
+	slice2 := strings.Split(str, "/")
+	fmt.Println(slice2[1])
+	joinable := strings.Join(slice2, "*")
+	fmt.Println(joinable)
+
+	for i, value := range slice2 {
+		fmt.Printf("Index: %d Value: %s \n", i, value)
+	}
+	var strNumber string = "32"
+	var number int
+	number, _ = strconv.Atoi(strNumber)
+	fmt.Printf("The number is %d \n", number)
+	number++
+	fmt.Printf("The number just got changed to %d \n", number)
+	strNumber = strconv.Itoa(number)
+	fmt.Println("The str representation to the number is ", strNumber)
+
 }
 
 func n() {
