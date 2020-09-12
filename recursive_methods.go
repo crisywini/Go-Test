@@ -4,6 +4,8 @@ import (
 	"fmt"
 	//Ojo con eso manito
 
+	"strings"
+
 	as "./counterS"
 	"./piTest"
 )
@@ -109,6 +111,26 @@ func main() {
 	}
 	*/
 
+	var str string = "The example of a prefix"
+
+	println(strings.HasPrefix(str, "th")) //Similitud al startsWith de Java
+
+	println(strings.HasSuffix(str, "prefix"))
+
+	var substr string = "example"
+	var containsSub bool = strings.Contains(str, substr)
+	println(containsSub)
+
+	var indexOf int = strings.Index(substr, "am")
+	var lastIndex int = strings.LastIndex(substr, "e")
+	println(indexOf, " ", lastIndex)
+	var numberOf int = strings.Count(substr, "5")
+	fmt.Printf("The number of e in example is %d", numberOf)
+	var replaced string
+	replaced = strings.Replace(str, "e", "kk", -1)
+	println(replaced)
+	var repeated string = strings.Repeat("Hola!", 40)
+	println(repeated)
 }
 
 func n() {
