@@ -8,6 +8,12 @@ import (
 func main() {
 	numbers := NumbersOneToTen()
 	fmt.Println(numbers)
+	showElements(numbers)
+}
+func showElements(numbers [10]int) {
+	for i := range numbers {
+		fmt.Println(numbers[i])
+	}
 }
 func NumbersOneToTen() [10]int {
 	var numbers [10]int
