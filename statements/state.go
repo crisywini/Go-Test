@@ -1,20 +1,27 @@
 package main
 
-func main() {
-	var f int = 1
-	switch {
-	case f < 0:
-		print("is 0")
-	case f > 0:
-		print("is 1")
-	case f > 0 && f < 100:
-		print("Is 2")
+import "fmt"
 
-	}
+func main() {
+	fmt.Println(isMajor(1, 1))
 
 }
+func isMajor(a int, b int) bool {
+LABEL1:
+	switch {
+	case a > b:
+		return true
+	case a == b:
+		a++
+		goto LABEL1
+	}
+
+	return false
+}
+
 func triangle(n int, pointer *string) {
 	aux := n
+
 	for i := 0; i < n; i++ {
 		for j := 0; j < aux; j++ {
 			*pointer += "G"
