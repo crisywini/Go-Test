@@ -1,4 +1,4 @@
-package main
+package collections
 
 import (
 	"fmt"
@@ -43,6 +43,7 @@ func main() {
 	fmt.Println(slice)
 
 }
+
 func fillFibo() {
 	Fibo[0] = 1
 	Fibo[1] = 1
