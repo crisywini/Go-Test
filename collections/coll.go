@@ -1,4 +1,4 @@
-package collections
+package main
 
 import (
 	"fmt"
@@ -35,14 +35,20 @@ func main() {
 			fmt.Println(i, " value: ", Fibonacci(i))
 		}
 	*/
-	InitMatrix()
-	showMatrix()
-	arr := [3]int{5, 1, 2}
-	fmt.Println(arr)
-	slice := &arr
-	fmt.Println(slice)
+	b := []byte{'g', 'o', 'l', 'a', 'n', 'd'}
+
+	fmt.Println(b[:])
+	c := Slice(12, 100)
+	fmt.Println(c)
 
 }
+func Slice(length int, capacity int) []string {
+	return make([]string, length, capacity)
+}
+
+//func SliceInt(length int, capacity int) []int {
+//	return make([capacity]int)[0:length]
+//}
 
 func fillFibo() {
 	Fibo[0] = 1
