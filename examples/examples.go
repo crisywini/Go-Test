@@ -14,10 +14,36 @@ func main() {
 
 	fmt.Print()
 	//var flag bool = isPalindrome("aabaa")
-	var word string = "aa3aa"
+	//var word string = "aa3aa"
+	//arr := [3]int{1, 2, 3}
+	//var arr2 [3]int
+	//println(minInsertions(word, 0, len(word)-1))
+	//showCombinations(&arr2, arr, 0)
+	var slice []int = make([]int, 10, 100)
+	findSubSets(1, slice, 0)
+	fmt.Println(cap(slice), " , ", len(slice))
+}
 
-	println(minInsertions(word, 0, len(word)-1))
+func findSubSets(k int, sub []int, i int) {
+	if k == len(sub)+1 {
+		fmt.Println(sub)
+	} else {
+		sub[i] = k
+		findSubSets(k+1, sub, i+1)
+		sub[i] = 0
+		findSubSets(k+1, sub, i+1)
+	}
+}
 
+func showCombinations(arr *[3]int, original [3]int, i int) {
+	if i == len(arr) {
+		fmt.Println(*arr)
+	} else {
+		for j := 0; j < len(arr); j++ {
+			arr[i] = original[j]
+			showCombinations(arr, original, i+1)
+		}
+	}
 }
 
 /*
