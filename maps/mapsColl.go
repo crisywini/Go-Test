@@ -19,7 +19,22 @@ func main() {
 	mapf := MapFunctions()
 
 	fmt.Println(mapf)
+	delete(mapf, "suma")
 
+	mapSlices := MapSlices()
+	mapSlices[0] = make([]int, 5)
+	mapSlices[1] = make([]int, 10)
+	mapSlices[2] = make([]int, 3)
+
+	fmt.Println(mapSlices)
+
+}
+func isOnMap(m map[string]func(x, y int) int, key string) bool {
+	_, res := m[key]
+	return res
+}
+func MapSlices() map[int][]int {
+	return make(map[int][]int)
 }
 
 func MapFunctions() map[string]func(x, y int) int {
