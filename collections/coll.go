@@ -1,7 +1,10 @@
 package collections
 
+//package main
+
 import (
 	"fmt"
+	"math"
 	"strconv"
 )
 
@@ -40,8 +43,54 @@ func main() {
 	fmt.Println(b[:])
 	c := Slice(12, 100)
 	fmt.Println(c)
+	s := []int{3, 4, 6, 8, -1, 654, 6, 9}
+	fmt.Println(s)
+	sort(s)
+	fmt.Println(s)
+	fmt.Println(search(s, -2, 0, 0, len(s)-1))
+	f := func(x int) int { return int(math.Pow(float64(x), 2)) }
+	s2 := MapFunction(f, 1, 2, 3, 4, 5)
+	fmt.Println(s2)
 
 }
+func sort(slice []int) {
+
+	for i := 0; i < len(slice); i++ {
+		for j := 0; j < len(slice)-1; j++ {
+			if slice[j] > slice[j+1] {
+				slice[j], slice[j+1] = slice[j+1], slice[j]
+			}
+		}
+	}
+}
+func search(slice []int, element int, i int, l, r int) int {
+	if r >= l {
+		i = (l + r) / 2
+
+		if slice[i] == element {
+			return i
+		}
+		if slice[i] > element {
+			return search(slice, element, i, l, i-1)
+		}
+		if slice[i] < element {
+			return search(slice, element, i, i+1, r)
+		}
+	}
+	return -1
+}
+func test(x ...int) {
+	fmt.Println(len(x))
+}
+
+func MapFunction(f func(e int) int, x ...int) []int {
+	var res []int = make([]int, len(x))
+	for i, val := range x {
+		res[i] = f(val)
+	}
+	return res
+}
+
 func Slice(length int, capacity int) []string {
 	return make([]string, length, capacity)
 }
