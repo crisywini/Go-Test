@@ -1,4 +1,6 @@
-package main
+//package main
+
+package web
 
 import (
 	"fmt"
