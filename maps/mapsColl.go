@@ -1,5 +1,6 @@
-//package maps
-package main
+package maps
+
+//package main
 
 import (
 	"fmt"
